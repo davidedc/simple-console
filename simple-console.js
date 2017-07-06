@@ -82,7 +82,7 @@ var SimpleConsole = function (options) {
   }
 
   var log = function (content) {
-    var wasScrolledToBottom = output.is_scrolled_to_bottom()
+    var wasScrolledToBottom = output.isScrolledToBottom()
 
     var entry = document.createElement('div')
     entry.className = 'entry'
@@ -95,7 +95,7 @@ var SimpleConsole = function (options) {
 
     requestAnimationFrame(function () {
       if (wasScrolledToBottom) {
-        output.scroll_to_bottom()
+        output.scrollToBottom()
       }
     })
 
@@ -128,12 +128,12 @@ var SimpleConsole = function (options) {
     getLastEntry().classList.add('success')
   }
 
-  output.is_scrolled_to_bottom = function () {
+  output.isScrolledToBottom = function () {
     // 1px margin of error needed in case the user is zoomed in
     return output.scrollTop + output.clientHeight + 1 >= output.scrollHeight
   }
 
-  output.scroll_to_bottom = function () {
+  output.scrollToBottom = function () {
     output.scrollTop = output.scrollHeight
   }
 
@@ -162,7 +162,7 @@ var SimpleConsole = function (options) {
   loadCommandHistory()
 
   input.addEventListener('keydown', function (e) {
-    if (e.keyCode === 13) { // Enter
+    if (e.keyCode === 13) {  // Enter
       // Execute command and add to history
       var command = input.value
       if (command === '') {
@@ -180,10 +180,10 @@ var SimpleConsole = function (options) {
       commandEntry.classList.add('input')
       addChevron(commandEntry)
 
-      output.scroll_to_bottom()
+      output.scrollToBottom()
 
       handleCommand(command)
-    } else if (e.keyCode === 38) { // Up
+    } else if (e.keyCode === 38) {  // Up
       // Previous command from history
       if (--commandId < 0) {
         commandId = -1
@@ -193,7 +193,7 @@ var SimpleConsole = function (options) {
       }
       input.setSelectionRange(input.value.length, input.value.length)
       e.preventDefault()
-    } else if (e.keyCode === 40) { // Down
+    } else if (e.keyCode === 40) {  // Down
       // Next command from history
       if (++commandId >= commandHistory.length) {
         commandId = commandHistory.length
@@ -203,7 +203,7 @@ var SimpleConsole = function (options) {
       }
       input.setSelectionRange(input.value.length, input.value.length)
       e.preventDefault()
-    } else if (e.keyCode === 46 && e.shiftKey) { // Shift+Delete
+    } else if (e.keyCode === 46 && e.shiftKey) {  // Shift+Delete
       // Remove command from history
       if (input.value === commandHistory[commandId]) {
         commandHistory.splice(commandId, 1)
@@ -212,7 +212,7 @@ var SimpleConsole = function (options) {
         saveCommandHistory()
       }
       e.preventDefault()
-    } else if (e.keyCode === 46 && e.shiftKey && e.ctrlKey) { // Ctrl+Shift+Delete
+    } else if (e.keyCode === 46 && e.shiftKey && e.ctrlKey) {  // Ctrl+Shift+Delete
       // Clean command history
       clearCommandHistory()
       e.preventDefault()
@@ -237,4 +237,4 @@ var SimpleConsole = function (options) {
   this.clear = clear
 }
 
-module.exports = SimpleConsole
+export default SimpleConsole
