@@ -50,7 +50,7 @@ var con = new SimpleConsole({
 		}
 	},
 	autofocus: true, // if the console is to be the primary interface of the page
-	storageID: "app-console"
+	storagePre: "app-console"
 });
 
 // add the console to the page
@@ -116,7 +116,7 @@ You must specify either `outputOnly` or `handleCommand`.
 
 - `options.autofocus` should be used within an application where the console is the primary interface.
 
-- `options.storageID` should be used to separate the command history of different consoles.
+- `options.storagePre` should be used to separate the command history of different consoles.
 It's used as a [`localStorage`][] key prefix.
 
 #### `con.element`

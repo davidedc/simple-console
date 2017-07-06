@@ -22,7 +22,7 @@ var SimpleConsole = function (options) {
   var handleCommand = options.handleCommand
   var placeholder = options.placeholder || ''
   var autofocus = options.autofocus
-  var storageId = options.storageID || 'simple-console'
+  var storagePre = options.storagePre || 'simple-console'
 
   var addSVG = function (toElement, iconClassName, svg, viewBox = '0 0 16 16') {
     var icon = document.createElement('span')
@@ -137,7 +137,7 @@ var SimpleConsole = function (options) {
 
   var commandHistory = []
   var commandId = commandHistory.length
-  var commandHistoryKey = storageId + ' command history'
+  var commandHistoryKey = storagePre + ' command history'
 
   var loadCommandHistory = function () {
     try {
