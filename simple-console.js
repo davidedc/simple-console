@@ -23,6 +23,7 @@ var SimpleConsole = function (options) {
   var placeholder = options.placeholder || ''
   var autofocus = options.autofocus
   var storagePre = options.storagePre || 'simple-console'
+  var classPre = options.classPre || 'simple-console-'
 
   var addSVG = function (toElement, iconClassName, svg, viewBox = '0 0 16 16') {
     var icon = document.createElement('span')
@@ -32,7 +33,7 @@ var SimpleConsole = function (options) {
   }
 
   var addChevron = function (toElement) {
-    addSVG(toElement, 'input-chevron',
+    addSVG(toElement, classPre + 'chevron',
       '<path d="M6,4L10,8L6,12" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path>'
     )
   }
@@ -41,16 +42,16 @@ var SimpleConsole = function (options) {
   consoleElement.className = 'simple-console'
 
   var output = document.createElement('div')
-  output.className = 'simple-console-output'
+  output.className = classPre + 'output'
   output.setAttribute('role', 'log')
   output.setAttribute('aria-live', 'polite')
 
   var inputWrapper = document.createElement('div')
-  inputWrapper.className = 'simple-console-input-wrapper'
+  inputWrapper.className = classPre + 'wrapper'
   addChevron(inputWrapper)
 
   var input = document.createElement('input')
-  input.className = 'simple-console-input'
+  input.className = classPre + 'input'
   input.setAttribute('placeholder', placeholder)
   input.setAttribute('aria-label', placeholder)
   if (autofocus) {
@@ -60,8 +61,8 @@ var SimpleConsole = function (options) {
   consoleElement.appendChild(output)
   if (!outputOnly) {
     consoleElement.appendChild(inputWrapper)
+    inputWrapper.appendChild(input)
   }
-  inputWrapper.appendChild(input)
 
   var addButton = function (action) {
     var button = document.createElement('button')
@@ -83,7 +84,7 @@ var SimpleConsole = function (options) {
     var wasScrolledToBottom = output.isScrolledToBottom()
 
     var entry = document.createElement('div')
-    entry.className = 'entry'
+    entry.className = classPre + 'entry'
     if (content instanceof Element) {
       entry.appendChild(content)
     } else {
@@ -108,22 +109,22 @@ var SimpleConsole = function (options) {
 
   var error = function (content) {
     log(content)
-    getLastEntry().classList.add('error')
+    getLastEntry().classList.add(classPre + 'error')
   }
 
   var warn = function (content) {
     log(content)
-    getLastEntry().classList.add('warning')
+    getLastEntry().classList.add(classPre + 'warning')
   }
 
   var info = function (content) {
     log(content)
-    getLastEntry().classList.add('info')
+    getLastEntry().classList.add(classPre + 'info')
   }
 
   var success = function (content) {
     log(content)
-    getLastEntry().classList.add('success')
+    getLastEntry().classList.add(classPre + 'success')
   }
 
   output.isScrolledToBottom = function () {
@@ -175,7 +176,7 @@ var SimpleConsole = function (options) {
       saveCommandHistory()
 
       var commandEntry = log(command)
-      commandEntry.classList.add('input')
+      commandEntry.classList.add(classPre + 'command')
       addChevron(commandEntry)
 
       output.scrollToBottom()

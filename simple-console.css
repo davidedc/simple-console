@@ -12,11 +12,11 @@
 }
 
 .simple-console-output,
-.simple-console-input-wrapper {
+.simple-console-wrapper {
 	flex: 0;
 	flex-basis: auto;
 }
-.simple-console-input-wrapper {
+.simple-console-wrapper {
 	display: flex;
 	flex-shrink: 0;
 }
@@ -26,16 +26,13 @@
 	color: inherit;
 	background: transparent;
 	border: 0;
-	box-shadow: 0 1px 0 transparent;
-}
-.simple-console-input:focus {
 	outline: 0;
 	box-shadow: 0 1px 0 rgba(0, 0, 0, 0.2);
 }
-.simple-console-input-wrapper button {
-	margin-left: 1rem;
+.simple-console-wrapper button {
+	margin-left: 0.5rem;
 }
-.simple-console-input-wrapper button.icon {
+.simple-console-wrapper button.icon {
 	background: transparent;
 	color: inherit;
 	border: 0;
@@ -47,32 +44,32 @@
 	-moz-user-select: none;
 	-webkit-user-select: none;
 }
-.simple-console-input-wrapper button.icon svg {
+.simple-console-wrapper button.icon svg {
 	width: 1em;
 	height: 1em;
 	pointer-events: none;
 }
-.simple-console-input-wrapper button.icon {
+.simple-console-wrapper button.icon {
 	outline: 0;
 }
-.simple-console-input-wrapper button.icon:hover,
-.simple-console-input-wrapper button.icon:focus {
+.simple-console-wrapper button.icon:hover,
+.simple-console-wrapper button.icon:focus {
 	color: #4078c0;
 }
-.dark .simple-console-input-wrapper button.icon:hover,
-.dark .simple-console-input-wrapper button.icon:focus {
+.dark .simple-console-wrapper button.icon:hover,
+.dark .simple-console-wrapper button.icon:focus {
 	color: #007CFF;
 }
-.simple-console-input-wrapper button.icon:active {
+.simple-console-wrapper button.icon:active {
 	opacity: 0.8;
 }
-.simple-console-input-wrapper,
-.simple-console .entry {
+.simple-console-wrapper,
+.simple-console-entry {
 	padding: 0.25rem 0.5rem;
 	padding-left: 1rem; /* = A */
 	position: relative;
 }
-.simple-console .input-chevron {
+.simple-console-chevron {
 	position: absolute;
 	left: 0;
 	top: 0;
@@ -82,38 +79,38 @@
 	align-items: center;
 	justify-content: center;
 }
-.simple-console .entry.input {
+.simple-console-entry.simple-console-command {
 	color: gray;
 }
-.simple-console .error {
+.simple-console-error {
 	color: #A00;
 	background: #FFF5F5;
 }
-.simple-console .dark .error {
+.dark .simple-console-error {
 	color: #A00;
 	background: rgba(255, 0, 0, 0.15);
 }
-.simple-console .warning {
+.simple-console-warning {
 	color: #8a6300;
 	background: rgba(255, 230, 0, 0.24);
 }
-.simple-console .dark .warning {
+.dark .simple-console-warning {
 	color: #ffdc46;
 	background: rgba(255, 171, 0, 0.2);
 }
-.simple-console .info {
+.simple-console-info {
 	color: rgb(0, 89, 148);
 	background: rgba(0, 136, 255, 0.17);
 }
-.simple-console .dark .info {
+.dark .simple-console-info {
 	color: rgb(98, 155, 193);
 	background: rgba(0, 136, 255, 0.17);
 }
-.simple-console .success {
+.simple-console-success {
 	color: rgb(77, 148, 0);
 	background: rgba(96, 226, 90, 0.17);
 }
-.simple-console .dark .success {
+.dark .simple-console-success {
 	color: rgb(138, 212, 58);
 	background: rgba(11, 255, 0, 0.17);
 }

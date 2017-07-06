@@ -50,7 +50,8 @@ var con = new SimpleConsole({
 		}
 	},
 	autofocus: true, // if the console is to be the primary interface of the page
-	storagePre: "app-console"
+	storagePre: "app-console",
+	classPre: "simple-console-"
 });
 
 // add the console to the page
@@ -118,6 +119,8 @@ You must specify either `outputOnly` or `handleCommand`.
 
 - `options.storagePre` should be used to separate the command history of different consoles.
 It's used as a [`localStorage`][] key prefix.
+
+- `options.classPre` should be used to separate class names for console from rest of CSS by prepending a string.
 
 #### `con.element`
 
