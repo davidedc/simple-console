@@ -136,20 +136,6 @@ Adds a button to the right of the console's input area and returns the button el
 
 `action` should be a function.
 
-#### `console.addPopupButton(updatePopup)`
-
-Adds a button with a popup to the right of the console's input area and returns the button element.
-
-`updatePopup(popupElement)` should update the contents of the popup.
-
-Use `addPopupMenuButton` instead if the popup's contents are a standard menu.
-
-#### `console.addPopupMenuButton(getItems)`
-
-Adds a button with a standard popup menu to the right of the console's input area and returns the button element.
-
-`getItems()` should return an array of items, with each item either of the form `{label, action}` or `{type: "divider"}`.
-
 #### `console.handleUncaughtErrors()`
 
 Sets up a [`window.onerror`][] event listener which logs any uncaught errors to the console.
