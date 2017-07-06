@@ -212,6 +212,10 @@ var SimpleConsole = function (options) {
         saveCommandHistory()
       }
       e.preventDefault()
+    } else if (e.keyCode === 46 && e.shiftKey && e.ctrlKey) { // Ctrl+Shift+Delete
+      // Clean command history
+      clearCommandHistory()
+      e.preventDefault()
     }
   })
 
