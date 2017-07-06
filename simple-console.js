@@ -53,9 +53,11 @@ var SimpleConsole = function (options) {
 
   var input = document.createElement('input')
   input.className = 'simple-console-input'
-  input.setAttribute('autofocus', 'autofocus')
   input.setAttribute('placeholder', placeholder)
   input.setAttribute('aria-label', placeholder)
+  if (autofocus) {
+    input.setAttribute('autofocus', 'autofocus')
+  }
 
   consoleElement.appendChild(output)
   if (!outputOnly) {
