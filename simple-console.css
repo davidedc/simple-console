@@ -1,3 +1,4 @@
+/* Simple Console <https://github.com/gw0/simple-console> */
 
 .simple-console {
 	display: flex;
@@ -22,7 +23,6 @@
 .simple-console-input {
 	flex: 1;
 	font-size: inherit;
-	height: 1em;
 	color: inherit;
 	background: transparent;
 	border: 0;
@@ -33,7 +33,9 @@
 	box-shadow: 0 1px 0 rgba(0, 0, 0, 0.2);
 }
 .simple-console-input-wrapper button {
-	margin-left: 0.2rem;
+	margin-left: 1rem;
+}
+.simple-console-input-wrapper button.icon {
 	background: transparent;
 	color: inherit;
 	border: 0;
@@ -45,23 +47,23 @@
 	-moz-user-select: none;
 	-webkit-user-select: none;
 }
-.simple-console-input-wrapper button svg {
+.simple-console-input-wrapper button.icon svg {
 	width: 1em;
 	height: 1em;
 	pointer-events: none;
 }
-.simple-console-input-wrapper button {
+.simple-console-input-wrapper button.icon {
 	outline: 0;
 }
-.simple-console-input-wrapper button:hover,
-.simple-console-input-wrapper button:focus {
+.simple-console-input-wrapper button.icon:hover,
+.simple-console-input-wrapper button.icon:focus {
 	color: #4078c0;
 }
-.dark .simple-console-input-wrapper button:hover,
-.dark .simple-console-input-wrapper button:focus {
+.dark .simple-console-input-wrapper button.icon:hover,
+.dark .simple-console-input-wrapper button.icon:focus {
 	color: #007CFF;
 }
-.simple-console-input-wrapper button:active {
+.simple-console-input-wrapper button.icon:active {
 	opacity: 0.8;
 }
 .simple-console-input-wrapper,
@@ -116,7 +118,6 @@
 	background: rgba(11, 255, 0, 0.17);
 }
 
-
 .simple-console .light {
 	background: white;
 	color: black;
@@ -130,18 +131,10 @@
 	box-shadow: 0 1px 0 rgba(255, 255, 255, 0.2);
 }
 
-.simple-console .dark ::-webkit-input-placeholder {
-	color: #555;
-}
-
-.simple-console .dark :-moz-placeholder { /* Firefox 18- */
-	color: #555;
-}
-
-.simple-console .dark ::-moz-placeholder { /* Firefox 19+ */
-	color: #555;
-}
-
-.simple-console .dark :-ms-input-placeholder {
+.simple-console .dark ::placeholder,
+.simple-console .dark ::-webkit-input-placeholder /* Chrome/Safari */,
+.simple-console .dark :-moz-placeholder /* Firefox 18- */,
+.simple-console .dark ::-moz-placeholder /* Firefox 19+ */,
+.simple-console .dark :-ms-input-placeholder /* IE 10+ */ {
 	color: #555;
 }

@@ -1,7 +1,5 @@
 /**
- * Simple Console
- *
- * - <https://github.com/gw0/simple-console>
+ * Simple Console <https://github.com/gw0/simple-console>
  *
  * Copyright (c) 2017 gw0 [http://gw.tnode.com/] <gw.2017@ena.one>
  * Copyright (c) 2016 Isaiah Odhner

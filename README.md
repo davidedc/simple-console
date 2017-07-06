@@ -56,7 +56,7 @@ var con = new SimpleConsole({
 // add the console to the page
 document.body.appendChild(con.element);
 
-// show any uncaught errors
+// show all uncaught errors
 con.handleUncaughtErrors();
 ```
 
@@ -66,6 +66,7 @@ con.handleUncaughtErrors();
 You should probably also include a `charset` and `viewport` like in the demo.
 
 To make the console take up the entire page, use:
+
 ```css
 html,
 body {
@@ -84,14 +85,15 @@ You could add a theme switcher like so:
 
 ```js
 var toggleDarkMode = function() {
-	if (console.element.classList.contains("dark")) {
-		console.element.classList.remove("dark");
+	if (con.element.classList.contains("dark")) {
+		con.element.classList.remove("dark");
 	} else {
-		console.element.classList.add("dark");
+		con.element.classList.add("dark");
 	}
 };
-var button = console.addButton(toggleDarkMode);
+var button = con.addButton(toggleDarkMode);
 button.textContent = "◐";
+button.classList.add("icon");
 button.setAttribute("title", "Toggle dark theme");
 button.setAttribute("aria-label", "Toggle dark theme");
 ```
@@ -102,73 +104,71 @@ button.setAttribute("aria-label", "Toggle dark theme");
 
 Creates a console instance.
 
-**Note:** The `SimpleConsole` object is referred to as `console` below, but you should probably give it a different name so it doesn't conflict with the global console object.
-
-`options.handleCommand(command)` is called when the user hits <kbd>Enter</kbd>.
+- `options.handleCommand(command)` is called when the user hits <kbd>Enter</kbd>.
 You can handle the input however you want.
-It's recommended that you catch errors and log them with `console.error`.
+It's recommended that you catch errors and log them with `con.error`.
 Other logging methods are documented below.
 
-`options.outputOnly` specifies that there should be no input.
+- `options.outputOnly` specifies that there should be no input.
 You must specify either `outputOnly` or `handleCommand`.
 
-`options.placeholder` is strongly recommended especially with the default input styling as there is very little visual indication of the input (when it's not focused).
+- `options.placeholder` is strongly recommended especially with the default input styling as there is very little visual indication of the input (when it's not focused).
 
-`options.autofocus` should be used within an application where the console is the primary interface.
+- `options.autofocus` should be used within an application where the console is the primary interface.
 
-`options.storageID` should be used to separate the command history of different consoles.
+- `options.storageID` should be used to separate the command history of different consoles.
 It's used as a [`localStorage`][] key prefix.
 
-#### `console.element`
+#### `con.element`
 
 You must use this to add the console to the page,
 e.g. `document.body.appendChild(console.element)`
 
-#### `console.input`
+#### `con.input`
 
 The console's `<input>` element.
 Can be used to add controls/widgets
-i.e. `console.input.parentElement.appendChild(widget)`
+i.e. `con.input.parentElement.appendChild(widget)`
 
-#### `console.addButton(action)`
+#### `con.addButton(action)`
 
 Adds a button to the right of the console's input area and returns the button element.
 
 `action` should be a function.
 
-#### `console.handleUncaughtErrors()`
+#### `con.handleUncaughtErrors()`
 
 Sets up a [`window.onerror`][] event listener which logs any uncaught errors to the console.
 
-#### `console.log(content)`
+#### `con.log(content)`
 
 Logs the given text or element to the console.
 
-#### `console.logHTML(html)`
+#### `con.logHTML(html)`
 
 Logs the given HTML to the console.
 
-#### `console.error(content)`
+#### `con.error(content)`
 
 Logs the given error message (or element) to the console.
 
-#### `console.warn(content)`
+#### `con.warn(content)`
 
 Logs the given warning message (or element) to the console.
 
-#### `console.info(content)`
+#### `con.info(content)`
 
 Logs the given info message (or element) to the console.
 
-#### `console.success(content)`
+#### `con.success(content)`
 
 Logs the given success message (or element) to the console.
 
-#### `console.getLastEntry()`
+#### `con.getLastEntry()`
 
 Returns the last logged entry as an `HTMLDivElement` for further manipulation.
 
-#### `console.clear()`
+#### `con.clear()`
 
 Clears the console.
 
