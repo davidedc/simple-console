@@ -30,7 +30,7 @@
 	box-shadow: 0 1px 0 rgba(0, 0, 0, 0.2);
 }
 .simple-console-wrapper button {
-	margin-left: 0.5rem;
+	margin-left: 0.5em;
 }
 .simple-console-wrapper button.icon {
 	background: transparent;
@@ -65,8 +65,8 @@
 }
 .simple-console-wrapper,
 .simple-console-entry {
-	padding: 0.25rem 0.5rem;
-	padding-left: 1rem; /* = A */
+	padding: 0.25em 0.5em;
+	padding-left: 1em;
 	position: relative;
 }
 .simple-console-chevron {
@@ -74,13 +74,16 @@
 	left: 0;
 	top: 0;
 	bottom: 0;
-	width: 1rem; /* = A */
+	width: 1em;
 	display: flex;
 	align-items: center;
 	justify-content: center;
 }
-.simple-console-entry.simple-console-command {
-	color: gray;
+.simple-console-entry {
+	color: #808080;
+}
+.simple-console-command {
+	color: inherit;
 }
 .simple-console-error {
 	color: #A00;
