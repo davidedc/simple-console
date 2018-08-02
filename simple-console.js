@@ -43,8 +43,9 @@ var SimpleConsole = function(options) {
 	input_wrapper.className = "simple-console-input-wrapper";
 	add_chevron(input_wrapper);
 
-	var input = document.createElement("input");
+	var input = document.createElement("textarea");
 	input.className = "simple-console-input";
+	input.setAttribute("id", "inputTextarea");
 	input.setAttribute("autofocus", "autofocus");
 	input.setAttribute("placeholder", placeholder);
 	input.setAttribute("aria-label", placeholder);
@@ -247,6 +248,7 @@ var SimpleConsole = function(options) {
 							input.value = command;
 							input.focus();
 							input.setSelectionRange(input.value.length, input.value.length);
+							input.value = "";
 						}
 					});
 				}(command, i));
@@ -359,14 +361,18 @@ var SimpleConsole = function(options) {
 
 	load_command_history();
 
+	var emptyInputAndSizeItToOneLineOnly = function() {
+		setTimeout(function(){ input.value = ""; autosize.update(input); console.log("input");});
+	};
+
 	input.addEventListener("keydown", function(e) {
 		if (e.keyCode === 13) { // Enter
 
 			var command = input.value;
 			if (command === "") {
+				emptyInputAndSizeItToOneLineOnly();
 				return;
 			}
-			input.value = "";
 
 			if (command_history[command_history.length - 1] !== command) {
 				command_history.push(command);
@@ -381,6 +387,7 @@ var SimpleConsole = function(options) {
 			output.scroll_to_bottom();
 
 			handle_command(command);
+			emptyInputAndSizeItToOneLineOnly();
 
 		} else if (e.keyCode === 38) { // Up
 			
@@ -392,6 +399,8 @@ var SimpleConsole = function(options) {
 			}
 			input.setSelectionRange(input.value.length, input.value.length);
 			e.preventDefault();
+			
+			autosize.update(input);
 			
 		} else if (e.keyCode === 40) { // Down
 			
