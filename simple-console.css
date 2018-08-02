@@ -120,10 +120,10 @@
 .input-chevron {
 	position: absolute;
 	left: 0;
-	top: 0;
+	top: 0.3rem;
 	bottom: 0;
 	width: 1rem; /* = A */
-	display: flex;
+	//display: flex;
 	align-items: center;
 	justify-content: center;
 }
