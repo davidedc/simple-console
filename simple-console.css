@@ -26,11 +26,9 @@
 	color: inherit;
 	background: transparent;
 	border: 0;
-	box-shadow: 0 1px 0 transparent;
 }
 .simple-console-input:focus {
 	outline: 0;
-	box-shadow: 0 1px 0 rgba(0, 0, 0, 0.2);
 }
 .simple-console-input-wrapper button {
 	margin-left: 0.2rem;
@@ -64,12 +62,12 @@
 .simple-console-input-wrapper button:active {
 	opacity: 0.8;
 }
-.simple-console-input-wrapper .popup-menu {
+.simple-console-input-wrapper {
 	position: absolute;
 	right: 0;
-	margin: 0.5em;
-	margin-top: 1.5em;
-	border: 1px solid rgba(128, 128, 128, 0.5);
+	margin: 0.2em;
+    margin-top: 0.7em;
+    border: 1px solid rgba(128, 128, 128, 0.5);
 	border-radius: 0.2em;
 	user-select: none;
 	-ms-user-select: none;
@@ -78,38 +76,10 @@
 	cursor: default;
 }
 @media (max-width: 52em) {
-	.simple-console-input-wrapper .popup-menu {
+	.simple-console-input-wrapper {
 		min-width: 0;
 		left: 0;
 	}
-}
-.popup-menu[aria-hidden="true"] {
-	display: none;
-}
-.popup-menu .menu-item:first-child {
-	border-top-left-radius: 0.2em;
-	border-top-right-radius: 0.2em;
-}
-.popup-menu .menu-item:last-child {
-	border-bottom-left-radius: 0.2em;
-	border-bottom-right-radius: 0.2em;
-}
-.menu-divider {
-	border: 0;
-	border-bottom: 1px solid rgba(128, 128, 128, 0.5);
-	margin: 0.3em 0;
-}
-.popup-menu .menu-item {
-	padding: 0.25rem 0.5rem;
-}
-.popup-menu .menu-item:hover {
-	background: rgba(128, 128, 128, 0.1);
-}
-.popup-menu .menu-item:focus,
-.popup-menu .menu-item:active {
-	background: #4078c0;
-	color: white;
-	outline: 0;
 }
 .simple-console-input-wrapper,
 .entry {
@@ -129,6 +99,7 @@
 }
 .entry.input {
 	color: gray;
+	border-top: 1px dotted rgba(128, 128, 128, 0.5);
 }
 .error {
 	color: #A00;
@@ -165,18 +136,14 @@
 
 
 .light,
-.light .popup-menu {
+.light {
 	background: white;
 	color: black;
 }
 .dark,
-.dark .popup-menu {
+.dark {
 	background: black;
 	color: white;
-}
-
-.dark .simple-console-input:focus {
-	box-shadow: 0 1px 0 rgba(255, 255, 255, 0.2);
 }
 
 .dark ::-webkit-input-placeholder {
