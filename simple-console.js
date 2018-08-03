@@ -144,7 +144,7 @@ var SimpleConsole = function(options) {
 	};
 
 	input.addEventListener("keydown", function(e) {
-		if (e.keyCode === 13) { // Enter
+		if (e.keyCode === 13 && !e.shiftKey) { // Enter
 
 			var command = input.value;
 			if (command === "") {
